@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="FORK/6 turns one decision into a museum of three unlived futures."
+    />
+    <title>FORK/6 — Museum of Unlived Futures</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="aurora aurora-one" aria-hidden="true"></div>
+    <div class="aurora aurora-two" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="FORK/6 home">
+        <span class="brand-mark">F/6</span>
+        <span class="brand-copy">
+          <strong>FORK/6</strong>
+          <small>Museum of Unlived Futures</small>
+        </span>
+      </a>
+      <div class="status" id="modelStatus">
+        <span class="status-dot"></span>
+        <span>Waking the oracle</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="intakeView">
+        <div class="eyebrow"><span>EXHIBIT 001</span> / DECISION ARCHAEOLOGY</div>
+        <h1>
+          Visit the futures<br />
+          <em>you almost lived.</em>
+        </h1>
+        <p class="hero-copy">
+          Give the museum a decision, obsession, or impossible idea. GPT‑6 will
+          excavate three timelines and return with evidence.
+        </p>
+
+        <form class="intake-card" id="futureForm">
+          <label class="field-label" for="seed">WHAT FUTURE ARE WE OPENING?</label>
+          <div class="textarea-shell">
+            <textarea
+              id="seed"
+              name="seed"
+              maxlength="1200"
+              rows="5"
+              placeholder="What if I left a stable career to build tools that help people remember their dreams?"
+              required
+            ></textarea>
+            <span class="character-count" id="characterCount">0 / 1200</span>
+          </div>
+
+          <div class="examples" aria-label="Example ideas">
+            <span>Try an artifact:</span>
+            <button type="button" data-example="I move to a city where I know nobody and start over with no professional identity.">Blank map</button>
+            <button type="button" data-example="I build a tiny company that only makes products designed to disappear after they become useful.">Vanishing company</button>
+            <button type="button" data-example="I spend one year treating curiosity as my only career strategy.">Curiosity year</button>
+          </div>
+
+          <div class="controls-grid">
+            <fieldset>
+              <legend>CURATORIAL LENS</legend>
+              <div class="segmented">
+                <input type="radio" id="luminous" name="tone" value="luminous" checked />
+                <label for="luminous">Luminous</label>
+                <input type="radio" id="ruthless" name="tone" value="ruthless" />
+                <label for="ruthless">Ruthless</label>
+                <input type="radio" id="strange" name="tone" value="strange" />
+                <label for="strange">Strange</label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>TIME HORIZON</legend>
+              <div class="horizon">
+                <input type="range" id="horizon" name="horizon" min="0" max="4" value="2" step="1" />
+                <div class="horizon-labels" aria-hidden="true">
+                  <span>1Y</span><span>3Y</span><span>5Y</span><span>10Y</span><span>20Y</span>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <button class="open-button" type="submit">
+            <span>OPEN THE TIMELINES</span>
+            <span class="button-arrow" aria-hidden="true">↗</span>
+          </button>
+          <p class="keyboard-hint">⌘ ENTER TO OPEN · EACH EXHIBIT IS UNIQUE</p>
+        </form>
+      </section>
+
+      <section class="loading-view hidden" id="loadingView" aria-live="polite">
+        <div class="portal">
+          <div class="orbit orbit-a"><span></span></div>
+          <div class="orbit orbit-b"><span></span></div>
+          <div class="orbit orbit-c"><span></span></div>
+          <div class="portal-core">F/6</div>
+        </div>
+        <div class="loading-copy">
+          <span class="loading-index" id="loadingIndex">01 / 05</span>
+          <h2 id="loadingTitle">Locating the first divergence</h2>
+          <p id="loadingDetail">Comparing choices that have not happened yet.</p>
+        </div>
+        <div class="loading-track"><span id="loadingProgress"></span></div>
+      </section>
+
+      <section class="museum hidden" id="museumView">
+        <div class="museum-head">
+          <button class="text-button" id="newExhibitButton">← NEW EXHIBIT</button>
+          <span class="accession" id="accessionNumber">ACCESSION F6—000000</span>
+          <button class="text-button" id="downloadButton">DOWNLOAD CATALOG ↓</button>
+        </div>
+
+        <div class="title-block">
+          <div class="eyebrow">THREE OBJECTS RECOVERED FROM THE POSSIBLE</div>
+          <h2 id="exhibitTitle"></h2>
+          <p id="curatorNote"></p>
+          <blockquote id="deepQuestion"></blockquote>
+        </div>
+
+        <div class="timeline-map" id="timelineMap" aria-label="Three possible timelines">
+          <div class="map-line"></div>
+        </div>
+
+        <div class="timeline-layout">
+          <nav class="timeline-tabs" id="timelineTabs" aria-label="Timeline selection"></nav>
+          <article class="timeline-exhibit" id="timelineExhibit">
+            <div class="exhibit-number" id="exhibitNumber">OBJECT 01</div>
+            <div class="choice-stamp">
+              <span>THE CHOICE</span>
+              <p id="timelineChoice"></p>
+            </div>
+
+            <div class="artifact-display">
+              <div class="artifact-visual" id="artifactVisual" aria-hidden="true">
+                <span class="artifact-symbol" id="artifactSymbol"></span>
+                <span class="scan-line"></span>
+              </div>
+              <div class="artifact-copy">
+                <span id="artifactYear"></span>
+                <h3 id="artifactName"></h3>
+                <p id="artifactLabel"></p>
+              </div>
+            </div>
+
+            <p class="world-copy" id="worldCopy"></p>
+
+            <div class="transmission">
+              <div class="transmission-head">
+                <span class="live-dot"></span>
+                INCOMING TRANSMISSION / FUTURE SELF
+              </div>
+              <p id="transmissionCopy"></p>
+            </div>
+
+            <div class="ledger">
+              <div>
+                <span>HIDDEN COST</span>
+                <p id="hiddenCost"></p>
+              </div>
+              <div>
+                <span>UNEXPECTED GIFT</span>
+                <p id="unexpectedGift"></p>
+              </div>
+              <div class="first-move">
+                <span>DO THIS TODAY</span>
+                <p id="firstMove"></p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <section class="convergence">
+          <div class="convergence-orbit" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="convergence-copy">
+            <span class="section-kicker">THE CONVERGENCE</span>
+            <h3 id="invariant"></h3>
+            <div class="convergence-grid">
+              <div>
+                <span>WHAT YOU MAY BE AVOIDING</span>
+                <p id="avoidance"></p>
+              </div>
+              <div>
+                <span>SEVEN-DAY FIELD TEST</span>
+                <p id="experiment"></p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="wildcard">
+          <span>WILDCARD OBJECT / UNCATALOGUED</span>
+          <p id="wildcard"></p>
+        </aside>
+      </section>
+    </main>
+
+    <div class="toast hidden" id="toast" role="alert"></div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

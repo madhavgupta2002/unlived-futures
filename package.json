@@ -1,0 +1,16 @@
+{
+  "name": "fork-6",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "An interactive museum of futures imagined with GPT-6 on Amazon Bedrock.",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node --watch server.mjs",
+    "test": "node --test",
+    "check": "node --check server.mjs && node --check lib/bedrock.mjs && node --check lib/futures.mjs && node --check public/app.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
